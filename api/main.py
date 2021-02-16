@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template_string
+from flask import Flask, request, render_template
 
 app = Flask(__name__)
 
@@ -15,13 +15,5 @@ def index():
         val2 = ''
         result = ''
 
-    return render_template_string('''
-<form action="/" method="POST">
-<p>Input 1: <input type="number" name="numberx" value="{{ val1 }}"></p>
-<p>Input 2: <input type="number" name="numberx" value="{{ val2 }}"></p>
-<input type="submit" value="Calculate">
-<p>Result: <input type="number" name="result_dc" value="{{ result }}"></p>
-</form>
-''', val1=val1, val2=val2, result=result)
-
+    return render_template("form.html",val1=val1, val2=val2, result=result) 
 app.run()
